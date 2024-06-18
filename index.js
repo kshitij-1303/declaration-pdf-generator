@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/pdf", myDeclaration);
 app.use("/pdf", newDeclaration);
 
-app.get("/pdf", (req, res) => {
+app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 

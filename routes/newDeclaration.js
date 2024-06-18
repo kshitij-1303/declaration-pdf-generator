@@ -122,7 +122,6 @@ router.get("/new/generatePdf", (req, res) => {
       const val = newData[key];
       key = camelCaseToWords(key);
       makeBold(`${key}: ${val}`);
-      console.log(val);
     }
   });
 
@@ -142,7 +141,18 @@ router.get("/new/generatePdf", (req, res) => {
   stream.on("finish", () => {
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", `attachment; filename=${pdfPath}`);
-    fs.createReadStream(pdfPath).pipe(res);
+    const fileStream = fs.createReadStream(pdfPath);
+    fileStream.pipe(res);
+
+    // fileStream.on("end", () => {
+    //   fs.unlink(pdfPath, (err) => {
+    //     if (err) {
+    //       console.log("error deleting the file: ", err);
+    //     } else {
+    //       console.log("file deleted successfully");
+    //     }
+    //   });
+    // });
   });
 });
 
