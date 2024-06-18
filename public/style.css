@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10rem;
+  gap: 1rem;
+}
+
+.btn {
+  display: flex;
+  gap: 2rem;
+}
+
+.btn a {
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+}
+.new {
+  background-color: rgb(246, 65, 65);
+}
+
+.new:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.own {
+  background-color: rgb(65, 147, 240);
+}
+.own:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.myform {
+  min-width: 400px;
+}
+
+.form {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.btn-check {
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  color: white;
+  background-color: rgb(48, 83, 221);
+}

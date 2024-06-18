@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="form">
+  <form method="POST" action="/pdf/info/check">
+
+    <div class="form-field">
+      <label for="date1" class="form-label fw-bold">Start date</label>
+      <input placeholder="dd-mm-yyyy" name="date1" type="date" required class="form-control">
+    </div>
+
+    <div class="form-field">
+      <label for="date2" class="form-label fw-bold">End date</label>
+      <input placeholder="dd-mm-yyyy" name="date2" type="date" required class="form-control">
+    </div>
+   
+    <div class="form-field">
+      <label for="stipend" class="form-label fw-bold">Stipend</label>
+    <input placeholder="Enter amount " name="stipend" type="number" required class="form-control">
+    </div>
+
+
+    <div class="form-field">
+      <label for="Password" class="form-label fw-bold">Enter Password</label>
+      <input placeholder="Enter Password " name="password" type="password" required class="form-control">
+    </div>
+
+    <button class="btn-check">Submit</button>
+    
+  </form>
+  </div>
+</body>
+</html>
