@@ -40,7 +40,7 @@ router.post(
     { name: "signature", maxCount: 1 },
     { name: "PAN", maxCount: 1 },
   ]),
-  (req, res) => {
+  async (req, res) => {
     const signatureFile = req.files["signature"][0];
     const panFile = req.files["PAN"][0];
 
@@ -144,15 +144,15 @@ router.get("/new/generatePdf", (req, res) => {
     const fileStream = fs.createReadStream(pdfPath);
     fileStream.pipe(res);
 
-    // fileStream.on("end", () => {
-    //   fs.unlink(pdfPath, (err) => {
-    //     if (err) {
-    //       console.log("error deleting the file: ", err);
-    //     } else {
-    //       console.log("file deleted successfully");
-    //     }
-    //   });
-    // });
+    fileStream.on("end", () => {
+      fs.unlink(pdfPath, (err) => {
+        if (err) {
+          console.log("error deleting the file: ", err);
+        } else {
+          console.log("file deleted successfully");
+        }
+      });
+    });
   });
 });
 
