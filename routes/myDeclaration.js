@@ -1,8 +1,10 @@
+require("dotenv").config;
 const express = require("express");
 const router = express.Router();
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const camelCaseToWords = require("../utils/camelCaseToWords");
+const imagePath = process.env.IMAGE_PATH;
 
 const formFields = {
   benificiaryName: process.env.NAME,
@@ -116,9 +118,8 @@ router.get("/my", (req, res) => {
     continued: true,
   });
 
-  doc.image("./images/Signature.png", 70, 400, { width: 150, height: 80 });
-
-  doc.image("./images/Pan-card.png", 70, 600, { width: 250, height: 150 });
+  doc.image(`${imagePath}/Signature.png`, 70, 400, { width: 150, height: 80 });
+  doc.image(`${imagePath}/Pan-card.png`, 70, 600, { width: 250, height: 150 });
 
   doc.end();
   const pdfPath = "declaration.pdf";
